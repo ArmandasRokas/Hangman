@@ -13,22 +13,14 @@ import androidx.navigation.Navigation;
 
 import dk.dtu.rokas.hangman.R;
 
-public class MainMenuFrag extends Fragment {
-
+public class GameFrag extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.main_menu, container, false);
-
-        Button button = root.findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Navigation.findNavController(v).navigate(R.id.action_mainMenuFrag_to_gameFrag);
-            }
-        });
+        View root = inflater.inflate(R.layout.game, container, false);
 
         return root;
     }
+
 }

@@ -9,5 +9,14 @@
         android:id="@+id/mainMenuFrag"
         android:name="dk.dtu.rokas.hangman.fragment.MainMenuFrag"
         android:label="main_menu"
-        tools:layout="@layout/main_menu" />
+        tools:layout="@layout/main_menu" >
+        <action
+            android:id="@+id/action_mainMenuFrag_to_gameFrag"
+            app:destination="@id/gameFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFrag"
+        android:name="dk.dtu.rokas.hangman.fragment.GameFrag"
+        android:label="game"
+        tools:layout="@layout/game" />
 </navigation>
