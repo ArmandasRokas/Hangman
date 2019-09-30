@@ -18,9 +18,7 @@ public class GameFrag extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.game, container, false);
-
-        return root;
+        return inflater.inflate(R.layout.game, container, false);
     }
 
 }
