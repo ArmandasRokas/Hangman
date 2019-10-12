@@ -52,5 +52,9 @@
         android:id="@+id/loserFrag"
         android:name="dk.dtu.rokas.hangman.view.LoserFrag"
         android:label="loser"
-        tools:layout="@layout/loser" />
+        tools:layout="@layout/loser" >
+        <action
+            android:id="@+id/action_loserFrag_to_newGameFrag"
+            app:destination="@id/newGameFrag" />
+    </fragment>
 </navigation>
