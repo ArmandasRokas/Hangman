@@ -24,7 +24,7 @@
         android:id="@+id/gameFrag"
         android:name="dk.dtu.rokas.hangman.view.NewGameFrag"
         android:label="game"
-        tools:layout="@layout/game" />
+        tools:layout="@layout/new_game" />
     <fragment
         android:id="@+id/helpFrag"
         android:name="dk.dtu.rokas.hangman.view.HelpFrag"
@@ -32,7 +32,7 @@
         tools:layout="@layout/help" />
     <fragment
         android:id="@+id/highscoreFrag"
-        android:name="dk.dtu.rokas.hangman.view.HighscoreFrag"
+        android:name="dk.dtu.rokas.hangman.view.HighScoreFrag"
         android:label="highscore"
         tools:layout="@layout/highscore" />
 </navigation>
