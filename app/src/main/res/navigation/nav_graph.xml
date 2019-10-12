@@ -13,10 +13,26 @@
         <action
             android:id="@+id/action_mainMenuFrag_to_gameFrag"
             app:destination="@id/gameFrag" />
+        <action
+            android:id="@+id/action_mainMenuFrag_to_highscoreFrag"
+            app:destination="@id/highscoreFrag" />
+        <action
+            android:id="@+id/action_mainMenuFrag_to_helpFrag"
+            app:destination="@id/helpFrag" />
     </fragment>
     <fragment
         android:id="@+id/gameFrag"
         android:name="dk.dtu.rokas.hangman.fragment.GameFrag"
         android:label="game"
         tools:layout="@layout/game" />
+    <fragment
+        android:id="@+id/helpFrag"
+        android:name="dk.dtu.rokas.hangman.fragment.HelpFrag"
+        android:label="help"
+        tools:layout="@layout/help" />
+    <fragment
+        android:id="@+id/highscoreFrag"
+        android:name="dk.dtu.rokas.hangman.fragment.HighscoreFrag"
+        android:label="highscore"
+        tools:layout="@layout/highscore" />
 </navigation>

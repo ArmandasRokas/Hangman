@@ -21,14 +21,29 @@ public class MainMenuFrag extends Fragment {
 
         View root = inflater.inflate(R.layout.main_menu, container, false);
 
-        Button button = root.findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button newGameBtn = root.findViewById(R.id.newgame_button);
+        newGameBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(v).navigate(R.id.action_mainMenuFrag_to_gameFrag);
             }
         });
 
+        Button highScoreBtn = root.findViewById(R.id.highscore_button);
+        highScoreBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.action_mainMenuFrag_to_highscoreFrag);
+            }
+        });
+
+        Button helpBtn = root.findViewById(R.id.help_button);
+        helpBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Navigation.findNavController(v).navigate(R.id.action_mainMenuFrag_to_helpFrag);
+            }
+        });
         return root;
     }
 }
