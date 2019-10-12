@@ -33,7 +33,6 @@ public class WinnerFrag extends Fragment {
         timeMissedTv.setText(String.format("You missed %d times",gl.getAntalForkerteBogstaver() ));
         Button newgame = v.findViewById(R.id.winnerNewGameBtn);
         highScoreRepo.save(new HighScore(gl.getCurrentUsername(), gl.getAntalForkerteBogstaver()));
-        test();
         newgame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,12 +41,4 @@ public class WinnerFrag extends Fragment {
         });
         return v;
     }
-
-    private void test() {
-        List<HighScore> highScores = highScoreRepo.getHighScores();
-        for(HighScore highScore: highScores){
-            System.out.println(highScore.toString());
-        }
-    }
-
 }
