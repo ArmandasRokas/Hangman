@@ -13,12 +13,14 @@ import androidx.fragment.app.Fragment;
 import dk.dtu.rokas.hangman.R;
 import dk.dtu.rokas.hangman.business.GameLogic;
 
-public class HelpFrag extends Fragment {
-
-
+public class LoserFrag extends Fragment {
+    private GameLogic gl = GameLogic.getInstance();
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View v = inflater.inflate(R.layout.help, container, false);
-
+        View v = inflater.inflate(R.layout.loser, container, false);
+        TextView usernameTv = v.findViewById(R.id.usernameStatusLoserTV);
+        usernameTv.setText(String.format("%s",gl.getCurrentUsername() ));
+        TextView answerTv = v.findViewById(R.id.answerTv);
+        answerTv.setText(String.format("The answer is: %s", gl.getOrdet()));
         return v;
     }
 }

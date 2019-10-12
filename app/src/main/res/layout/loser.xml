@@ -1,42 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <TextView
-        android:id="@+id/usernameStatusTV"
+        android:id="@+id/usernameStatusLoserTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=""
         android:textSize="18sp" />
 
     <ImageView
-        android:id="@+id/hangman"
+        android:id="@+id/hangmanLoser"
         android:layout_width="match_parent"
         android:layout_height="206dp"
-        app:srcCompat="@mipmap/hang" />
+        app:srcCompat="@mipmap/six_mistakes" />
 
     <TextView
-        android:id="@+id/currLetters"
+        android:id="@+id/loserTv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="24sp" />
+        android:text="You lost"
+        android:textSize="30sp" />
 
-    <EditText
-        android:id="@+id/guessET"
-        android:layout_width="37dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:maxLength="1"
-        android:text="" />
+    <TextView
+        android:id="@+id/answerTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/confirmLetterBtn"
+        android:id="@+id/loserNewGameBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Confirm" />
+        android:text="New Game" />
 
 </LinearLayout>

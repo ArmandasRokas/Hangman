@@ -1,14 +1,19 @@
 package dk.dtu.rokas.hangman.view;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import dk.dtu.rokas.hangman.R;
 import dk.dtu.rokas.hangman.business.GameLogic;
@@ -18,15 +23,54 @@ public class GameFrag extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.game, container, false);
+        final View v = inflater.inflate(R.layout.game, container, false);
         TextView usernameTv = v.findViewById(R.id.usernameStatusTV);
         usernameTv.setText(String.format("%s",gl.getCurrentUsername() ));
-
-
-        TextView currLetters = v.findViewById(R.id.currLetters);
+        updateImage(v); //FIXME does not work when screen rotates
+        final TextView currLetters = v.findViewById(R.id.currLetters);
         currLetters.setText(gl.getSynligtOrd());
 
+        final EditText guess = v.findViewById(R.id.guessET);
+
+        Button confirmLetterBtn = v.findViewById(R.id.confirmLetterBtn);
+        confirmLetterBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO onclick confirm. clear text
+                gl.gætBogstav(guess.getText().toString());
+                guess.getText().clear();
+                currLetters.setText(gl.getSynligtOrd());
+                updateImage(v);
+                if(gl.erSpilletTabt()){
+                    Navigation.findNavController(v).navigate(R.id.action_gameFrag_to_loserFrag2);
+                }
+            }
+        });
 
         return v;
+    }
+
+    private void updateImage(View v) {
+        ImageView imageView = v.findViewById(R.id.hangman);
+        switch (gl.getAntalForkerteBogstaver()){
+            case 0:
+                imageView.setImageResource(R.mipmap.hang);
+                break;
+            case 1:
+                imageView.setImageResource(R.mipmap.one_mistake);
+                break;
+            case 2:
+                imageView.setImageResource(R.mipmap.two_mistakes);
+                break;
+            case 3:
+                imageView.setImageResource(R.mipmap.three_mistakes);
+                break;
+            case 4:
+                imageView.setImageResource(R.mipmap.four_mistakes);
+                break;
+            case 5:
+                imageView.setImageResource(R.mipmap.five_mistakes);
+                break;
+        }
     }
 }
