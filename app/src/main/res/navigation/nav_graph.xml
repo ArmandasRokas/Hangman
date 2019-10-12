@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainMenuFrag"
-        android:name="dk.dtu.rokas.hangman.fragment.MainMenuFrag"
+        android:name="dk.dtu.rokas.hangman.view.MainMenuFrag"
         android:label="main_menu"
         tools:layout="@layout/main_menu" >
         <action
@@ -22,17 +22,17 @@
     </fragment>
     <fragment
         android:id="@+id/gameFrag"
-        android:name="dk.dtu.rokas.hangman.fragment.GameFrag"
+        android:name="dk.dtu.rokas.hangman.view.NewGameFrag"
         android:label="game"
         tools:layout="@layout/game" />
     <fragment
         android:id="@+id/helpFrag"
-        android:name="dk.dtu.rokas.hangman.fragment.HelpFrag"
+        android:name="dk.dtu.rokas.hangman.view.HelpFrag"
         android:label="help"
         tools:layout="@layout/help" />
     <fragment
         android:id="@+id/highscoreFrag"
-        android:name="dk.dtu.rokas.hangman.fragment.HighscoreFrag"
+        android:name="dk.dtu.rokas.hangman.view.HighscoreFrag"
         android:label="highscore"
         tools:layout="@layout/highscore" />
 </navigation>

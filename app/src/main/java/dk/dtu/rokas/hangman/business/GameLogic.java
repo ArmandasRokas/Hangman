@@ -10,6 +10,7 @@ import java.util.HashSet;
 import java.util.Random;
 
 public class GameLogic {
+    private static GameLogic instance = null;
     /** AHT afprøvning er muligeOrd synlig på pakkeniveau */
     ArrayList<String> muligeOrd = new ArrayList<String>();
     private String ordet;
@@ -19,8 +20,9 @@ public class GameLogic {
     private boolean sidsteBogstavVarKorrekt;
     private boolean spilletErVundet;
     private boolean spilletErTabt;
+    private String currentUsername;
 
-    public GameLogic() {
+    private GameLogic() {
         muligeOrd.add("bil");
         muligeOrd.add("computer");
         muligeOrd.add("programmering");
@@ -31,6 +33,13 @@ public class GameLogic {
         muligeOrd.add("solsort");
         muligeOrd.add("nitten");
         nulstil();
+    }
+
+    public static GameLogic getInstance(){
+        if(instance == null){
+            instance = new GameLogic();
+        }
+        return instance;
     }
 
 
@@ -76,6 +85,13 @@ public class GameLogic {
         opdaterSynligtOrd();
     }
 
+    public String getCurrentUsername() {
+        return currentUsername;
+    }
+
+    public void setCurrentUsername(String currentUsername) {
+        this.currentUsername = currentUsername;
+    }
 
     private void opdaterSynligtOrd() {
         synligtOrd = "";

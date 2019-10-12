@@ -1,4 +1,4 @@
-package dk.dtu.rokas.hangman.fragment;
+package dk.dtu.rokas.hangman.view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
