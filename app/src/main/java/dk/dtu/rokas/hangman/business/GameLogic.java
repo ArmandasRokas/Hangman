@@ -20,7 +20,7 @@ public class GameLogic {
     private boolean sidsteBogstavVarKorrekt;
     private boolean spilletErVundet;
     private boolean spilletErTabt;
-    private String currentUsername;
+    private String currentUsername = "Username";
 
     private GameLogic() {
         muligeOrd.add("bil");

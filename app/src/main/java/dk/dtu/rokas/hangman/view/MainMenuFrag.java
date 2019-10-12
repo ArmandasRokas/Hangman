@@ -25,7 +25,7 @@ public class MainMenuFrag extends Fragment {
         newGameBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(v).navigate(R.id.action_mainMenuFrag_to_gameFrag);
+                Navigation.findNavController(v).navigate(R.id.action_mainMenuFrag_to_newGameFrag);
             }
         });
 

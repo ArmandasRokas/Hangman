@@ -10,6 +10,7 @@ import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import dk.dtu.rokas.hangman.R;
 import dk.dtu.rokas.hangman.business.GameLogic;
@@ -24,11 +25,14 @@ public class NewGameFrag extends Fragment {
         final Button confirmBtn = v.findViewById(R.id.confirmUsernameBtn);
         final EditText enterUsernameET = v.findViewById(R.id.usernameET);
 
+        enterUsernameET.setText(gl.getCurrentUsername());
+
         confirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String username = enterUsernameET.getText().toString();
                 gl.setCurrentUsername(username);
+                Navigation.findNavController(v).navigate(R.id.action_newGameFrag_to_gameFrag);
             }
         });
 

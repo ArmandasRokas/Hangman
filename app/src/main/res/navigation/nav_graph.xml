@@ -11,8 +11,8 @@
         android:label="main_menu"
         tools:layout="@layout/main_menu" >
         <action
-            android:id="@+id/action_mainMenuFrag_to_gameFrag"
-            app:destination="@id/gameFrag" />
+            android:id="@+id/action_mainMenuFrag_to_newGameFrag"
+            app:destination="@id/newGameFrag" />
         <action
             android:id="@+id/action_mainMenuFrag_to_highscoreFrag"
             app:destination="@id/highscoreFrag" />
@@ -21,10 +21,14 @@
             app:destination="@id/helpFrag" />
     </fragment>
     <fragment
-        android:id="@+id/gameFrag"
+        android:id="@+id/newGameFrag"
         android:name="dk.dtu.rokas.hangman.view.NewGameFrag"
         android:label="game"
-        tools:layout="@layout/new_game" />
+        tools:layout="@layout/new_game" >
+        <action
+            android:id="@+id/action_newGameFrag_to_gameFrag"
+            app:destination="@id/gameFrag" />
+    </fragment>
     <fragment
         android:id="@+id/helpFrag"
         android:name="dk.dtu.rokas.hangman.view.HelpFrag"
@@ -35,4 +39,9 @@
         android:name="dk.dtu.rokas.hangman.view.HighScoreFrag"
         android:label="highscore"
         tools:layout="@layout/highscore" />
+    <fragment
+        android:id="@+id/gameFrag"
+        android:name="dk.dtu.rokas.hangman.view.GameFrag"
+        android:label="game"
+        tools:layout="@layout/game" />
 </navigation>
