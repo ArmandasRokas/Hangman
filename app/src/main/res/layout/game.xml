@@ -33,6 +33,11 @@
         android:maxLength="1"
         android:text="" />
 
+    <TextView
+        android:id="@+id/usedLattersTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <Button
         android:id="@+id/confirmLetterBtn"
         android:layout_width="match_parent"

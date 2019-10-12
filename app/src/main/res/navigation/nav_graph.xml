@@ -47,6 +47,9 @@
         <action
             android:id="@+id/action_gameFrag_to_loserFrag2"
             app:destination="@id/loserFrag" />
+        <action
+            android:id="@+id/action_gameFrag_to_winnerFrag"
+            app:destination="@id/winnerFrag" />
     </fragment>
     <fragment
         android:id="@+id/loserFrag"
@@ -55,6 +58,15 @@
         tools:layout="@layout/loser" >
         <action
             android:id="@+id/action_loserFrag_to_newGameFrag"
+            app:destination="@id/newGameFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/winnerFrag"
+        android:name="dk.dtu.rokas.hangman.view.WinnerFrag"
+        android:label="winner"
+        tools:layout="@layout/winner" >
+        <action
+            android:id="@+id/action_winnerFrag_to_newGameFrag"
             app:destination="@id/newGameFrag" />
     </fragment>
 </navigation>

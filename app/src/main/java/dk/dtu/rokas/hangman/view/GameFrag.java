@@ -30,19 +30,24 @@ public class GameFrag extends Fragment {
         final TextView currLetters = v.findViewById(R.id.currLetters);
         currLetters.setText(gl.getSynligtOrd());
 
+
         final EditText guess = v.findViewById(R.id.guessET);
 
         Button confirmLetterBtn = v.findViewById(R.id.confirmLetterBtn);
         confirmLetterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO onclick confirm. clear text
                 gl.gætBogstav(guess.getText().toString());
                 guess.getText().clear();
                 currLetters.setText(gl.getSynligtOrd());
                 updateImage(v);
+                TextView usedLettersTv = v.findViewById(R.id.usedLattersTv);
+                usedLettersTv.setText(String.format("Guessed letters: %s",gl.getBrugteBogstaver().toString() ));
                 if(gl.erSpilletTabt()){
                     Navigation.findNavController(v).navigate(R.id.action_gameFrag_to_loserFrag2);
+                }
+                if(gl.erSpilletVundet()){
+                    Navigation.findNavController(v).navigate(R.id.action_gameFrag_to_winnerFrag);
                 }
             }
         });
