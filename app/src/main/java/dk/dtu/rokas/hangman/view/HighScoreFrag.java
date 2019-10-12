@@ -1,5 +1,6 @@
 package dk.dtu.rokas.hangman.view;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,20 +9,32 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import dk.dtu.rokas.hangman.R;
+import dk.dtu.rokas.hangman.data.HighScore;
+import dk.dtu.rokas.hangman.data.HighScoreRepo;
+import dk.dtu.rokas.hangman.data.HighScoreSharedPrefImpl;
 
 public class HighScoreFrag extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
+    private HighScoreRepo highScoreRepo;
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
+        highScoreRepo = new HighScoreSharedPrefImpl(getActivity());
         View v = inflater.inflate(R.layout.highscore, container, false);
         recyclerView = v.findViewById(R.id.highScoreRV);
         // use this setting to improve performance if you know that changes
@@ -31,9 +44,13 @@ public class HighScoreFrag extends Fragment {
         layoutManager = new LinearLayoutManager(this.getContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        // specify an adapter (see also next example)
-        String[] myDataset  = {"a", "b", "c"};
-        mAdapter = new MyAdapter(myDataset);
+
+        List<HighScore> highScores = highScoreRepo.getHighScores();
+        String[] highScoresStringArray = highScores.stream()
+                .map(x -> String.format("%s %s", x.getUsername(), x.getScore()))
+                .toArray(String[]::new);
+
+        mAdapter = new MyAdapter(highScoresStringArray);
         recyclerView.setAdapter(mAdapter);
 
 

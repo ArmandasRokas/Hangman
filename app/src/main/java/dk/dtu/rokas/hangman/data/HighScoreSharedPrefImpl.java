@@ -3,8 +3,12 @@ package dk.dtu.rokas.hangman.data;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,6 +26,7 @@ public class HighScoreSharedPrefImpl implements HighScoreRepo {
         editor.apply();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public List<HighScore> getHighScores() {
         List<HighScore> highScores = new ArrayList<>();
@@ -31,6 +36,12 @@ public class HighScoreSharedPrefImpl implements HighScoreRepo {
             HighScore hs = new HighScore(entry.getKey(), Integer.valueOf(entry.getValue().toString()));
             highScores.add(hs);
         }
+        highScores.sort(new Comparator<HighScore>() {
+            @Override
+            public int compare(HighScore o1, HighScore o2) {
+                return o1.getScore()-o2.getScore();
+            }
+        });
         return highScores;
     }
 }
