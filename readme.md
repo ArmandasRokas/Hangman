@@ -5,6 +5,8 @@
 	- `MyActivity.game.nulstil()`; kan kaldes fra andre klasse
 	- contructor private
 	- getInstance
+	
+- hvor skal man gemme current user data. 
 ## Storing
 - `getFilesDir()`
 - PreferenceManager anbefelet
