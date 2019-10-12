@@ -22,6 +22,11 @@ public class GameFrag extends Fragment {
         TextView usernameTv = v.findViewById(R.id.usernameStatusTV);
         usernameTv.setText(String.format("%s",gl.getCurrentUsername() ));
 
+
+        TextView currLetters = v.findViewById(R.id.currLetters);
+        currLetters.setText(gl.getSynligtOrd());
+
+
         return v;
     }
 }

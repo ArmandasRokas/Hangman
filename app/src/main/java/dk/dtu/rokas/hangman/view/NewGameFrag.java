@@ -32,6 +32,7 @@ public class NewGameFrag extends Fragment {
             public void onClick(View v) {
                 String username = enterUsernameET.getText().toString();
                 gl.setCurrentUsername(username);
+                gl.nulstil();
                 Navigation.findNavController(v).navigate(R.id.action_newGameFrag_to_gameFrag);
             }
         });
