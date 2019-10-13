@@ -2,6 +2,7 @@ package dk.dtu.rokas.hangman.view;
 
 import android.media.Image;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,30 +30,43 @@ public class GameFrag extends Fragment {
         updateImage(v); //FIXME does not work when screen rotates
         final TextView currLetters = v.findViewById(R.id.currLetters);
         currLetters.setText(gl.getSynligtOrd());
-
-
         final EditText guess = v.findViewById(R.id.guessET);
+        guess.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View view, int keyCode, KeyEvent event) {
+                if(event.getAction() == KeyEvent.ACTION_DOWN && keyCode==KeyEvent.KEYCODE_ENTER){
+                    execute(guess, currLetters, v);
+                    return true;
+                }
+                return false;
+            }
+        });
+
 
         Button confirmLetterBtn = v.findViewById(R.id.confirmLetterBtn);
         confirmLetterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                gl.gætBogstav(guess.getText().toString());
-                guess.getText().clear();
-                currLetters.setText(gl.getSynligtOrd());
-                updateImage(v);
-                TextView usedLettersTv = v.findViewById(R.id.usedLattersTv);
-                usedLettersTv.setText(String.format("Guessed letters: %s",gl.getBrugteBogstaver().toString() ));
-                if(gl.erSpilletTabt()){
-                    Navigation.findNavController(v).navigate(R.id.action_gameFrag_to_loserFrag2);
-                }
-                if(gl.erSpilletVundet()){
-                    Navigation.findNavController(v).navigate(R.id.action_gameFrag_to_winnerFrag);
-                }
+                execute(guess, currLetters, v);
             }
         });
 
         return v;
+    }
+
+    private void execute(EditText guess, TextView currLetters, View v) {
+        gl.gætBogstav(guess.getText().toString());
+        guess.getText().clear();
+        currLetters.setText(gl.getSynligtOrd());
+        updateImage(v);
+        TextView usedLettersTv = v.findViewById(R.id.usedLattersTv);
+        usedLettersTv.setText(String.format("Guessed letters: %s",gl.getBrugteBogstaver().toString() ));
+        if(gl.erSpilletTabt()){
+            Navigation.findNavController(v).navigate(R.id.action_gameFrag_to_loserFrag2);
+        }
+        if(gl.erSpilletVundet()){
+            Navigation.findNavController(v).navigate(R.id.action_gameFrag_to_winnerFrag);
+        }
     }
 
     private void updateImage(View v) {

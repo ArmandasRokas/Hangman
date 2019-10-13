@@ -3,6 +3,13 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/highScoresTitleTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="High Scores"
+        android:textSize="36sp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/highScoreRV"
         android:layout_width="match_parent"
