@@ -1,5 +1,6 @@
 package dk.dtu.rokas.hangman.view;
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,12 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import dk.dtu.rokas.hangman.MainActivity;
 import dk.dtu.rokas.hangman.R;
 import dk.dtu.rokas.hangman.business.GameLogic;
 
@@ -25,6 +28,8 @@ public class NewGameFrag extends Fragment {
         View v = inflater.inflate(R.layout.new_game, container, false);
         final Button confirmBtn = v.findViewById(R.id.confirmUsernameBtn);
         final EditText enterUsernameET = v.findViewById(R.id.usernameET);
+        ProgressBar progressBar = v.findViewById(R.id.indeterminateBar);
+
 
         enterUsernameET.setText(gl.getCurrentUsername());
 
@@ -49,6 +54,12 @@ public class NewGameFrag extends Fragment {
         });
 
         new AsyncTask() {
+            private ProgressDialog dialog = new ProgressDialog(getContext());
+            @Override
+            protected void onPreExecute() {
+                progressBar.setVisibility(View.VISIBLE);
+                confirmBtn.setEnabled(false);
+            }
             @Override
             protected Object doInBackground(Object... arg0) {
                 try {
@@ -62,7 +73,8 @@ public class NewGameFrag extends Fragment {
 
             @Override
             protected void onPostExecute(Object titler) {
-                System.out.println("Succeed");
+                progressBar.setVisibility(View.INVISIBLE);
+                confirmBtn.setEnabled(true);
             }
         }.execute();
 
