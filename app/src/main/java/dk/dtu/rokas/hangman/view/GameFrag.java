@@ -1,6 +1,5 @@
 package dk.dtu.rokas.hangman.view;
 
-import android.media.Image;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -35,7 +34,7 @@ public class GameFrag extends Fragment {
             @Override
             public boolean onKey(View view, int keyCode, KeyEvent event) {
                 if(event.getAction() == KeyEvent.ACTION_DOWN && keyCode==KeyEvent.KEYCODE_ENTER){
-                    execute(guess, currLetters, v);
+                    confirmLetter(guess, currLetters, v);
                     return true;
                 }
                 return false;
@@ -47,14 +46,14 @@ public class GameFrag extends Fragment {
         confirmLetterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                execute(guess, currLetters, v);
+                confirmLetter(guess, currLetters, v);
             }
         });
 
         return v;
     }
 
-    private void execute(EditText guess, TextView currLetters, View v) {
+    private void confirmLetter(EditText guess, TextView currLetters, View v) {
         gl.gætBogstav(guess.getText().toString());
         guess.getText().clear();
         currLetters.setText(gl.getSynligtOrd());
