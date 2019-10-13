@@ -54,7 +54,6 @@ public class NewGameFrag extends Fragment {
         });
 
         new AsyncTask() {
-            private ProgressDialog dialog = new ProgressDialog(getContext());
             @Override
             protected void onPreExecute() {
                 progressBar.setVisibility(View.VISIBLE);
