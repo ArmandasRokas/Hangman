@@ -1,5 +1,6 @@
 package dk.dtu.rokas.hangman.view;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,6 +47,24 @@ public class NewGameFrag extends Fragment {
                 enterUsernameET.getText().clear();
             }
         });
+
+        new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object... arg0) {
+                try {
+                    gl.hentOrdFraDr();
+                    return null;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return e;
+                }
+            }
+
+            @Override
+            protected void onPostExecute(Object titler) {
+                System.out.println("Succeed");
+            }
+        }.execute();
 
         return v ;
     }

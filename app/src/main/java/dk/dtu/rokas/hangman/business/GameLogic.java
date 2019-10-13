@@ -23,6 +23,7 @@ public class GameLogic {
     private String currentUsername = "Username";
 
     private GameLogic() {
+
         muligeOrd.add("bil");
         muligeOrd.add("computer");
         muligeOrd.add("programmering");
