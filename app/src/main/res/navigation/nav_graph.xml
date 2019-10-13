@@ -59,6 +59,9 @@
         <action
             android:id="@+id/action_loserFrag_to_newGameFrag"
             app:destination="@id/newGameFrag" />
+        <action
+            android:id="@+id/action_loserFrag_to_mainMenuFrag"
+            app:destination="@id/mainMenuFrag" />
     </fragment>
     <fragment
         android:id="@+id/winnerFrag"
