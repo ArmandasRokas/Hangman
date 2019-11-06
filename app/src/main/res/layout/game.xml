@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -17,31 +18,77 @@
         android:layout_height="206dp"
         app:srcCompat="@mipmap/hang" />
 
-    <TextView
-        android:id="@+id/currLetters"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="24sp" />
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/guessET"
-        android:layout_width="37dp"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:maxLength="1"
-        android:text="" />
+        <Button
+            android:id="@+id/aBtn"
+            android:layout_width="65dp"
+            android:layout_height="66dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="193dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="A"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/usedLattersTv"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/bBtn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="88dp"
+            android:layout_marginEnd="26dp"
+            android:text="B"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/cBtn2"
+            app:layout_constraintEnd_toStartOf="@+id/cBtn2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cBtn2" />
 
-    <Button
-        android:id="@+id/confirmLetterBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Confirm" />
+        <Button
+            android:id="@+id/cBtn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="29dp"
+            android:text="C"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/cBtn3"
+            app:layout_constraintEnd_toStartOf="@+id/cBtn3"
+            app:layout_constraintStart_toEndOf="@+id/cBtn2"
+            app:layout_constraintTop_toTopOf="@+id/cBtn3" />
+
+        <Button
+            android:id="@+id/cBtn3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="55dp"
+            android:text="C"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cBtn"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/cBtn2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="21dp"
+            android:text="C"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/cBtn"
+            app:layout_constraintEnd_toStartOf="@+id/cBtn"
+            app:layout_constraintStart_toEndOf="@+id/bBtn"
+            app:layout_constraintTop_toTopOf="@+id/cBtn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
