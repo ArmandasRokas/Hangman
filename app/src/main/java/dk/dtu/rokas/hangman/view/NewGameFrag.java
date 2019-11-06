@@ -68,6 +68,7 @@ public class NewGameFrag extends Fragment {
             protected void onPreExecute() {
                 progressBar.setVisibility(View.VISIBLE);
                 confirmBtn.setEnabled(false);
+                confirmBtn.setBackgroundColor(getResources().getColor(R.color.colorGray));
             }
             @Override
             protected Object doInBackground(Object... arg0) {
@@ -84,6 +85,7 @@ public class NewGameFrag extends Fragment {
             protected void onPostExecute(Object titler) {
                 progressBar.setVisibility(View.INVISIBLE);
                 confirmBtn.setEnabled(true);
+                confirmBtn.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
             }
         }.execute();
 
