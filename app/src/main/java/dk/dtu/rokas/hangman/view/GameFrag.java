@@ -28,32 +28,11 @@ public class GameFrag extends Fragment {
         final View v = inflater.inflate(R.layout.game, container, false);
         TextView usernameTv = v.findViewById(R.id.usernameStatusTV);
         usernameTv.setText(String.format("%s",gl.getCurrentUsername() ));
-        updateImage(v); //FIXME does not work when screen rotates
+        updateImage(v);
         initializeBtns(v);
         updateButtons(v);
         currLetters = v.findViewById(R.id.currLetters);
         currLetters.setText(gl.getSynligtOrd());
-        //final EditText guess = v.findViewById(R.id.guessET);
-        /*guess.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View view, int keyCode, KeyEvent event) {
-                if(event.getAction() == KeyEvent.ACTION_DOWN && keyCode==KeyEvent.KEYCODE_ENTER){
-                    confirmLetter(guess, currLetters, v);
-                    return true;
-                }
-                return false;
-            }
-        });
-
-
-        Button confirmLetterBtn = v.findViewById(R.id.confirmLetterBtn);
-        confirmLetterBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                confirmLetter(guess, currLetters, v);
-            }
-        });*/
-
         return v;
     }
 
@@ -202,29 +181,6 @@ public class GameFrag extends Fragment {
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
     }
-
-/*
-    private void confirmLetter(EditText guess, TextView currLetters, View v) {
-        gl.gætBogstav(guess.getText().toString());
-        guess.getText().clear();
-        currLetters.setText(gl.getSynligtOrd());
-        updateImage(v);
-        TextView usedLettersTv = v.findViewById(R.id.usedLattersTv);
-        usedLettersTv.setText(String.format("Guessed letters: %s",gl.getBrugteBogstaver().toString() ));
-
-    }*/
-    /*
-        confirmLetter
-    - gl.gætBostav
-    - updateImage(v)
-    - update buttons
-            if(gl.erSpilletTabt()){
-            Navigation.findNavController(v).navigate(R.id.action_gameFrag_to_loserFrag2);
-        }
-        if(gl.erSpilletVundet()){
-            Navigation.findNavController(v).navigate(R.id.action_gameFrag_to_winnerFrag);
-        }
-     */
 
     private void updateImage(View v) {
         ImageView imageView = v.findViewById(R.id.hangman);
