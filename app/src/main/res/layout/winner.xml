@@ -9,7 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=""
-        android:textSize="18sp" />
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center" />
 
     <TextView
         android:id="@+id/wonTv"
@@ -22,7 +24,10 @@
     <TextView
         android:id="@+id/timesMissedTv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"/>
     <Button
         android:id="@+id/winnerNewGameBtn"
         android:layout_width="171dp"

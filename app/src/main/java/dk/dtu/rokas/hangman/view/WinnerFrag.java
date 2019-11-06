@@ -1,5 +1,6 @@
 package dk.dtu.rokas.hangman.view;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+
+import com.github.jinatonic.confetti.CommonConfetti;
+import com.github.jinatonic.confetti.ConfettiManager;
 
 import java.util.List;
 
@@ -26,6 +30,7 @@ public class WinnerFrag extends Fragment {
     private HighScoreRepo highScoreRepo;
 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        ConfettiManager confetti  = CommonConfetti.rainingConfetti(container, new int[] { Color.RED, Color.YELLOW, Color.GREEN }).infinite();
         highScoreRepo = new HighScoreSharedPrefImpl(this.getActivity());
         final View v = inflater.inflate(R.layout.winner, container, false);
         TextView usernameTv = v.findViewById(R.id.usernameStatusWinnerTV);
@@ -38,6 +43,7 @@ public class WinnerFrag extends Fragment {
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(v).navigate(R.id.action_winnerFrag_to_newGameFrag);
+                confetti.terminate();
             }
         });
 
@@ -45,6 +51,7 @@ public class WinnerFrag extends Fragment {
             @Override
             public void handleOnBackPressed() {
                 Navigation.findNavController(v).navigate(R.id.action_winnerFrag_to_mainMenuFrag);
+                confetti.terminate();
             }
         };
         requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
