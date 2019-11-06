@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center|top">
 
     <TextView
         android:id="@+id/usernameStatusWinnerTV"
@@ -15,7 +16,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="You won"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:gravity="center"/>
 
     <TextView
         android:id="@+id/timesMissedTv"
@@ -23,7 +25,9 @@
         android:layout_height="wrap_content" />
     <Button
         android:id="@+id/winnerNewGameBtn"
-        android:layout_width="match_parent"
+        android:layout_width="171dp"
         android:layout_height="wrap_content"
-        android:text="New Game" />
+        android:text="New Game"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/colorWhite"/>
 </LinearLayout>
