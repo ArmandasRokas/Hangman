@@ -47,7 +47,7 @@ public class HighScoreFrag extends Fragment {
 
         List<HighScore> highScores = highScoreRepo.getHighScores();
         String[] highScoresStringArray = highScores.stream()
-                .map(x -> String.format("%s %s", x.getUsername(), x.getScore()))
+                .map(x -> String.format("%s\t\t%s", x.getUsername(), x.getScore()))
                 .toArray(String[]::new);
 
         mAdapter = new MyAdapter(highScoresStringArray);
