@@ -3,12 +3,14 @@ package dk.dtu.rokas.hangman.view;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -37,9 +39,17 @@ public class NewGameFrag extends Fragment {
             @Override
             public void onClick(View v) {
                 String username = enterUsernameET.getText().toString();
-                gl.setCurrentUsername(username);
-                gl.nulstil();
-                Navigation.findNavController(v).navigate(R.id.action_newGameFrag_to_gameFrag);
+                if(username.length() < 1) {
+                    CharSequence text = "Please enter username";
+                    int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText(v.getContext(), text, duration);
+                    toast.setGravity(Gravity.CENTER, 0, 0);
+                    toast.show();
+                } else {
+                    gl.setCurrentUsername(username);
+                    gl.nulstil();
+                    Navigation.findNavController(v).navigate(R.id.action_newGameFrag_to_gameFrag);
+                }
             }
         });
 
