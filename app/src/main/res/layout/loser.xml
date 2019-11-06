@@ -3,13 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center|top">
     <TextView
         android:id="@+id/usernameStatusLoserTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=""
-        android:textSize="18sp" />
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"/>
 
     <ImageView
         android:id="@+id/hangmanLoser"
@@ -22,7 +25,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="You lost"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:gravity="center"/>
 
     <TextView
         android:id="@+id/answerTv"
@@ -31,8 +35,10 @@
 
     <Button
         android:id="@+id/loserNewGameBtn"
-        android:layout_width="match_parent"
+        android:layout_width="171dp"
         android:layout_height="wrap_content"
-        android:text="New Game" />
+        android:text="New Game"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/colorWhite"/>
 
 </LinearLayout>
